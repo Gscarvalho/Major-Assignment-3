@@ -16,14 +16,14 @@ fetch('/gallery.json')
 	.catch((error) => console.error(error));
 
 var images = [
-	'url(/images/Broken-Her.png)',
-	'url(/images/Bit-Shadowz-Tribute.png)',
-	'url(/images/Dark-Abyss.png)',
-	'url(/images/Fantom-Tombhead.png)',
-	'url(/images/Fantom-Turtle.png)',
-	'url(/images/GSC-Originals-1.png)',
-	'url(/images/Lust-Love-Lies.png)',
-	'url(/images/GSC-Mask.png)',
+	'url(/Major-Assignment-3/images/Broken-Her.png)',
+	'url(/Major-Assignment-3/images/Bit-Shadowz-Tribute.png)',
+	'url(/Major-Assignment-3/images/Dark-Abyss.png)',
+	'url(/Major-Assignment-3/images/Fantom-Tombhead.png)',
+	'url(/Major-Assignment-3/images/Fantom-Turtle.png)',
+	'url(/Major-Assignment-3/images/GSC-Originals-1.png)',
+	'url(/Major-Assignment-3/images/Lust-Love-Lies.png)',
+	'url(/Major-Assignment-3/images/GSC-Mask.png)',
 ];
 
 var currentImage = 7;
