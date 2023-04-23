@@ -1,0 +1,51 @@
+.intro-animation {
+	animation: buttons-appear 2s ease-in-out;
+}
+
+@keyframes buttons-appear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.row-invert {
+	animation: row-invert 0.2s ease-out;
+}
+
+@keyframes row-invert {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(-300%, 0);
+	}
+}
+
+.row-revert {
+	animation: row-revert 0.2s ease-in;
+}
+
+@keyframes row-revert {
+	0% {
+		transform: translate(0, 0);
+	}
+	100% {
+		transform: translate(300%, 0);
+	}
+}
+
+.spin {
+	animation: spin 2s linear 1;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(360deg);
+	}
+}

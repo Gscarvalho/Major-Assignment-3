@@ -1,0 +1,182 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+@import 'customs.scss';
+@import 'animations.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Plus+Jakarta+Sans&display=swap');
+// Base Desgin
+// Note* This is a mobile first design with Portait orientation
+
+body {
+	@include Normalize;
+	// @include FullSize;;;
+	background: var(--color-secondary);
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	color: var(--color-primary);
+}
+
+main {
+	@include Structure;
+	// @include FullSize;;;
+	@include Normalize;
+	overflow-y: hidden;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+	scroll-snap-align: start;
+	transition: all 0.5s ease-in-out;
+}
+
+section {
+	@include Structure;
+	@include FullSize;
+	min-height: 100vh;
+	gap: 25px;
+}
+
+header {
+	@include Structure;
+	@include FullSize($height: 5vh);
+	z-index: 9;
+	position: fixed;
+}
+
+nav {
+	@include Structure;
+	@include FullSize($width: 50%, $height: 5vh);
+}
+
+ul {
+	@include Structure($direction: row, $align: flex-start);
+	@include FullSize($height: 5vh, $width: 40%);
+	min-width: 235px;
+	max-width: 450px;
+	border-radius: 0 0 1em 1em;
+	box-shadow: 0px 0px 5px rgba($color: whitesmoke, $alpha: 0.8);
+	background: var(--color-onsecondary);
+	list-style: none;
+	gap: 1em;
+	transition: all 0.5s ease-in-out;
+}
+
+li {
+	@include Structure;
+	@include FullSize;
+	flex: 1;
+	height: 5vh;
+}
+
+a {
+	@include Structure($direction: row, $align: center);
+	text-decoration: none;
+	color: var(--color-primary);
+	gap: 0.5em;
+	transition: all 0.5s ease-in-out;
+	span {
+		transition: all 0.6s ease-out;
+	}
+
+	p {
+		width: 0;
+		opacity: 0;
+		transition: all 0.5s ease-in-out;
+	}
+}
+
+h1 {
+	@include Normalize;
+	font-size: 2.5em;
+	font-weight: 600;
+}
+h2 {
+	@include Normalize;
+}
+h3 {
+	@include Normalize;
+}
+h4 {
+	@include Normalize;
+}
+h5 {
+	@include Normalize;
+}
+h6 {
+	@include Normalize;
+}
+
+p {
+	@include Normalize;
+	font-family: 'Montserrat', sans-serif;
+}
+
+// Pseudo-classes
+a:hover {
+	span {
+		scale: 1.4;
+	}
+	p {
+		width: 100%;
+		opacity: 1;
+	}
+}
+
+// Media Queries
+// Desktop
+@media screen and (min-width: 800px) {
+	header {
+		@include FullSize($height: 100vh, $width: 6vw);
+		position: fixed;
+		nav {
+			@include FullSize($width: 6vw, $height: 100vh);
+			ul {
+				@include FullSize($height: 50%, $width: 6vw);
+				border-radius: 0 2em 2em 0;
+				min-width: 0px;
+				max-width: 6vw;
+				flex-direction: column;
+				li {
+					flex: 1;
+					a {
+						flex-direction: column;
+						p {
+							font-size: 0.7em;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		padding-top: 0;
+	}
+}
+
+// Mobile Landscape
+@media screen and (max-width: 800px) and (orientation: landscape) {
+	header {
+		@include FullSize($height: 100vh, $width: 9vw);
+		position: fixed;
+		nav {
+			@include FullSize($width: 7vw, $height: 100vh);
+			ul {
+				@include FullSize($height: 80%, $width: 9vw);
+				border-radius: 0 2em 2em 0;
+				min-width: 0px;
+				max-width: 9vw;
+				flex-direction: column;
+				li {
+					flex: 1;
+					a {
+						flex-direction: column;
+					}
+					p {
+						font-size: 70%;
+					}
+				}
+			}
+		}
+	}
+
+	main {
+		padding-top: 0;
+	}
+}
