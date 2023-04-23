@@ -152,5 +152,4 @@ function intro() {
 	});
 }
 
-// intro();
-// setTimeout(intro, 1000);
+setTimeout(intro, 1000);

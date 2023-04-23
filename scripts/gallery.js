@@ -66,3 +66,5 @@ window.addEventListener('DOMContentLoaded', (event) => {
 	image.style.backgroundImage = images[currentImage];
 	UpdateData();
 });
+
+// Path: scripts\gallery.json
