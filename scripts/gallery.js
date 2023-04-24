@@ -11,7 +11,7 @@ fetch('/Major-Assignment-3/gallery.json')
 	.then((response) => response.json())
 	.then((data) => {
 		artworks = data.Artworks;
-		console.log(artworks);
+		// console.log(artworks);
 	})
 	.catch((error) => console.error(error));
 

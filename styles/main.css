@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&family=Plus+Jakarta+Sans&display=swap");
 :root {
-  --color-primary: rgb(0, 139, 139);
+  --color-primary: hsl(180, 100%, 27%);
   --color-secondary: linear-gradient(180deg, black, darkcyan);
+  --color-tertiary: cyan;
   --color-onprimary: #333;
   --color-onsecondary: whitesmoke;
 }
@@ -198,6 +199,20 @@
   color: black;
 }
 
+.arrow-button span {
+  cursor: pointer;
+  background: var(--color-onsecondary);
+  border-radius: 1em;
+  margin: 0;
+  padding: 0.5em;
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.arrow-button:hover > span {
+  transform: scale(1.2);
+  background-color: var(--color-secondary);
+}
+
 .gallery-container {
   position: absolute;
   display: flex;
@@ -243,6 +258,12 @@
   padding: 0;
   width: 80%;
   height: 100%;
+}
+.gallery-container .gallery-info .gallery-text h2 {
+  font-size: 7cqw;
+}
+.gallery-container .gallery-info .gallery-text h6 {
+  font-size: 3cqw;
 }
 .gallery-container .gallery-window {
   flex: 4;
@@ -290,18 +311,6 @@
   margin: 0;
   padding: 0;
   gap: 50px;
-}
-.gallery-container .gallery-window .gallery-buttons-bar .arrow-button span {
-  cursor: pointer;
-  background: var(--color-onsecondary);
-  border-radius: 1em;
-  margin: 0;
-  padding: 0.5em;
-  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-.gallery-container .gallery-window .gallery-buttons-bar .arrow-button:hover > span {
-  transform: scale(1.2);
-  background-color: var(--color-secondary);
 }
 
 #link-bottom {
@@ -436,18 +445,6 @@
   border-radius: 5em;
   background-color: rgba(245, 245, 245, 0.1);
 }
-#mask div .arrow-button span {
-  cursor: pointer;
-  background: var(--color-onsecondary);
-  border-radius: 1em;
-  margin: 0;
-  padding: 0.5em;
-  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-#mask div .arrow-button:hover > span {
-  transform: scale(1.2);
-  background-color: var(--color-secondary);
-}
 
 #intro-card-2 {
   flex: 2;
@@ -459,6 +456,7 @@
   text-align: center;
   margin: 0;
   padding: 0;
+  cursor: pointer;
   margin-bottom: 50px;
 }
 #intro-card-2 img {
@@ -477,7 +475,13 @@
   flex-direction: row-reverse !important;
 }
 
-@media screen and (min-width: 800px) {
+#gallery {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden;
+}
+
+@media (min-width: 800px) {
   .skill-info {
     min-height: 50px;
   }
@@ -530,6 +534,12 @@
     border-radius: 2em 0px 0px 2em;
     background: linear-gradient(-90deg, rgba(0, 139, 139, 0), black);
   }
+  .gallery-container .gallery-info .gallery-text h2 {
+    font-size: 3.4cqw;
+  }
+  .gallery-container .gallery-info .gallery-text h6 {
+    font-size: 1.3cqw;
+  }
   .gallery-container .gallery-window {
     display: flex;
     flex-direction: row;
@@ -551,7 +561,7 @@
     padding: 0;
   }
 }
-@media screen and (max-width: 800px) and (orientation: landscape) {
+@media screen and (max-width: 900px) and (orientation: landscape) {
   #skill-info {
     min-height: 0px;
   }
@@ -617,6 +627,12 @@
     border-radius: 2em 0px 0px 2em;
     background: linear-gradient(-90deg, rgba(0, 139, 139, 0), black);
   }
+  .gallery-container .gallery-info .gallery-text h2 {
+    font-size: 2cqw;
+  }
+  .gallery-container .gallery-info .gallery-text h6 {
+    font-size: 1.3cqw;
+  }
   .gallery-container .gallery-window {
     display: flex;
     flex-direction: row;
@@ -639,7 +655,7 @@
   }
 }
 .intro-animation {
-  animation: buttons-appear 2s ease-in-out;
+  animation: buttons-appear 2s ease-in-out 1;
 }
 
 @keyframes buttons-appear {

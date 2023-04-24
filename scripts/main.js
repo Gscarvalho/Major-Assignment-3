@@ -10,9 +10,13 @@ var card1 = document.getElementById('intro-card-1');
 var card2 = document.getElementById('intro-card-2');
 var card3 = document.getElementById('intro-card-3');
 
+// Skills Variables
+var skillButtons = document.getElementById('skill-buttons');
+var skillInfo = document.getElementById('skill-info');
+var target = skillInfo.children[0];
+
 // Theme Changer
-themeButton.addEventListener('click', function () {
-	console.log('Theme Button Clicked');
+function ToggleTheme() {
 	if (ucfTheme) {
 		themeButton.classList.add('row-revert');
 		themeButtonBar.addEventListener('animationend', function () {
@@ -53,13 +57,18 @@ themeButton.addEventListener('click', function () {
 		}, 500);
 		ucfTheme = true;
 	}
+}
+
+// Theme Buttons
+themeButton.addEventListener('click', function () {
+	ToggleTheme();
+});
+
+card2.addEventListener('click', function () {
+	ToggleTheme();
 });
 
 // Skills Buttons
-var skillButtons = document.getElementById('skill-buttons');
-var skillInfo = document.getElementById('skill-info');
-var target = skillInfo.children[0];
-
 skillButtons.children[0].addEventListener('mouseover', function () {
 	target.innerHTML = `Art has been my passion since childhood, and I've been constantly refining my skills as an artist. UCF has provided me with a wide range of opportunities to explore new techniques and expand my creativity.`;
 });
@@ -81,7 +90,6 @@ var arrowButtons = document.getElementsByClassName('arrow-button');
 var titleElements = document.getElementsByClassName('title');
 
 arrowButtons[0].addEventListener('click', function () {
-	console.log('Arrow Button Clicked');
 	if (titleElements[0].classList.contains('active')) {
 		titleElements[0].classList.remove('active');
 		this.children[0].innerHTML = 'arrow_circle_down';
@@ -92,7 +100,6 @@ arrowButtons[0].addEventListener('click', function () {
 });
 
 arrowButtons[1].addEventListener('click', function () {
-	console.log('Arrow Button Clicked');
 	if (titleElements[1].classList.contains('active')) {
 		titleElements[1].classList.remove('active');
 		this.children[0].innerHTML = 'arrow_circle_down';
@@ -104,22 +111,22 @@ arrowButtons[1].addEventListener('click', function () {
 
 function isMobile() {
 	// #Mask Layout
-	console.log('mobile');
 	mask.innerHTML = '';
 	mask.style.flexDirection = 'column';
 	mask.appendChild(card2);
 	mask.appendChild(card1);
 	mask.appendChild(card3);
+	// console.log('mobile');
 }
 
 function restoreLayout() {
 	// #Mask Layout
-	console.log('desktop');
 	mask.innerHTML = '';
 	mask.style.flexDirection = 'row';
 	mask.appendChild(card1);
 	mask.appendChild(card2);
 	mask.appendChild(card3);
+	// console.log('desktop');
 }
 
 // Screen Resize Responsive Layout
@@ -133,7 +140,6 @@ window.addEventListener('resize', function () {
 
 // Mobile/Desktop Responsive Layout
 if (window.matchMedia('(min-width: 800px)').matches) {
-	console.log('match');
 	restoreLayout();
 } else {
 	isMobile();
