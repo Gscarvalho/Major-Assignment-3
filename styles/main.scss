@@ -86,18 +86,10 @@ h1 {
 	font-size: 2.5em;
 	font-weight: 600;
 }
-h2 {
-	@include Normalize;
-}
-h3 {
-	@include Normalize;
-}
-h4 {
-	@include Normalize;
-}
-h5 {
-	@include Normalize;
-}
+h2,
+h3,
+h4,
+h5,
 h6 {
 	@include Normalize;
 }
@@ -105,6 +97,19 @@ h6 {
 p {
 	@include Normalize;
 	font-family: 'Montserrat', sans-serif;
+}
+
+footer {
+	@include Structure;
+	@include Normalize;
+	@include FullSize;
+	z-index: 9;
+	background-color: #333;
+	.container {
+		@include Structure($direction: column, $align: center, $justify: space-around);
+		@include FullSize(90%, 100%);
+		justify-content: space-between;
+	}
 }
 
 // Pseudo-classes
@@ -147,6 +152,11 @@ a:hover {
 
 	main {
 		padding-top: 0;
+	}
+	footer {
+		.container {
+			@include Structure($direction: row, $justify: space-around);
+		}
 	}
 }
 
